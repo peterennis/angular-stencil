@@ -2,7 +2,7 @@ import { Component, Prop, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'fwt-slider',
-  styleUrl: 'slider.scss'
+  styleUrl: 'slider.css'
 })
 export class SliderComponent {
 

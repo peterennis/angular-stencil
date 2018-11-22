@@ -3,22 +3,15 @@
   "private": true,
   "version": "0.0.1",
   "description": "Stencil Starter App",
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "build": "stencil build --prerender",
-    "dev": "sd concurrent \"stencil build --dev --watch\" \"stencil-dev-server\" ",
-    "serve": "stencil-dev-server",
-    "start": "npm run dev"
+    "build": "stencil build",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
-    "@stencil/core": "0.2.3",
-    "@stencil/router": "0.0.23"
-  },
-  "devDependencies": {
-    "@stencil/dev-server": "0.0.18",
-    "@stencil/utils": "0.0.4"
+    "@stencil/core": "0.15.2",
+    "@stencil/router": "0.3.1"
   },
   "repository": {
     "type": "git",
