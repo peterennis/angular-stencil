@@ -3,6 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "description": "Stencil Starter App",
+  "main": "dist/index.js",
+  "module": "dist/esm/es5/index.js",
+  "types": "dist/types/components.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "build": "stencil build",
     "start": "stencil build --dev --watch --serve",
