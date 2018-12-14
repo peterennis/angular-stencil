@@ -1,0 +1,14 @@
+{
+  "namespace": "FwtSlider",
+  "fsNamespace": "fwt-slider",
+  "loader": "../fwt-slider.js",
+  "core": "fwt-slider.q9p3jhbe.js",
+  "corePolyfilled": "fwt-slider.rmi0oxqo.js",
+  "components": {
+    "fwt-slider": {
+      "bundleIds": {
+        "$": "oitu5nlt"
+      }
+    }
+  }
+}
