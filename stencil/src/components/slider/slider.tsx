@@ -19,6 +19,7 @@ export class SliderComponent {
   render() {
     return (
       <div class="slider-container">
+        <p>"@stencil/core": "0.16.1", "@stencil/router": "0.3.1"</p>
         <input type="range" min={this.min} max={this.max} value={this.value} class="slider" onChange={(event) => this.valueChangedHandler(event)}></input>
       </div>
     );
