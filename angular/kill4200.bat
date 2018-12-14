@@ -1,0 +1,2 @@
+REM Ref: https://stackoverflow.com/questions/39091735/port-4200-is-already-in-use-when-running-the-ng-serve-command
+for /f "tokens=5" %a in ('netstat -ano ^| find "4200" ^| find "LISTENING"') do taskkill /f /pid %a
