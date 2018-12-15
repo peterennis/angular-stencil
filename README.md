@@ -1,16 +1,15 @@
 # angular-stencil
 ![](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)
 
-This project shows a very basic example of how to connect a web component (generated with [Stencil](https://stenciljs.com/)) with a basic angular project.
+This project shows a very basic example of how to connect a web component (generated with [Stencil](https://stenciljs.com/)) and a basic [Angular 7](https://angular.io/) project.
 
-The following steps explain what I've done to get this working.
+The following steps explain how to get this working.
 
-## steps
+## Create a basic Stencil component
 
-### a basic stencil component
+The idea is to have a web component that can be data-bound via properties and return its changes by custom events. For this example a simple slider component is created.
 
-The idea is to have a web component that can be data-bound via properties and return its changes by custom events. 
-For this example I've picked nothing special but a simple slider component. The following code shows the `@Component` decorator. This decorator adds meta-information to you component like its selector `tag`. Our slider should use the custom element selector tag `fwt-slider` (so we can use `<fwt-slider>` later in the DOM).
+The following code shows the `@Component` decorator. This decorator adds meta-information to your component like its selector `tag`. Our slider uses the custom element selector tag `fwt-slider` (so we can use `<fwt-slider>` later in the DOM).
 
 ```jsx
 import { Component } from '@stencil/core';
@@ -22,7 +21,8 @@ export class SliderComponent {
   ...
 }
 ```
-Stencil components are very similar to react components. They have the same lifecycle methods and of course they also need a `render` function. So let's add one:
+
+Stencil components are very similar to React components. They have the same lifecycle methods and of course they also need a `render` function. So let's add one:
 
 ```jsx
 import { Component } from '@stencil/core';
@@ -42,9 +42,9 @@ export class SliderComponent {
 }
 ```
 
-### add properties
+### Add properties
 
-Our slider will have a min and a max property and an initial value property. Adding a property to a stencil component is very easy. All you have to do is to use the `@Prop` decorator:
+Our slider will have a min and a max property and an initial value property. Adding a property to a Stencil component is very easy. All you have to do is to use the `@Prop` decorator:
 
 ```jsx
 import { Component, Prop } from '@stencil/core';
@@ -69,15 +69,16 @@ export class SliderComponent {
 }
 ```
 
-### emit data using events
+### Emit data using events
 
-Ok so far so good.
-How about emitting an event when the value has been changed? That's actually a good idea. For this purpose we only have to use another decorator called `@Event`. This decorator is used in combination with the `EventEmitter` interface. This will create a custom event that is called like the event property. You can change the name and other event properties by passing `EventOptions` to the `@Event` decorator but for our example we keep things simple.
-In this example I'm listening to changes by the range input and pass the current value via the `EventEmitter` using its `emit` function.
-I've also added some style to our slider by setting the `styleUrl` (Stencil supports scss and css) in the `@Component` decorator.
+How do we go about emitting an event when the value has been changed? To accomplish this we only have to use another decorator called `@Event`. The decorator is used in combination with an `EventEmitter` interface. it  will create a custom event that is called like the event property. You can change the name and other event properties by passing `EventOptions` to the `@Event` decorator but for our example we keep things simple.
 
-### final component
-#### final slider.tsx
+In this example we are listening to changes by the range input and pass the current value via the `EventEmitter` using its `emit` function.
+
+We also added some style to our slider by setting the `styleUrl` (Stencil supports scss and css) in the `@Component` decorator.
+
+### Final component (slider.tsx)
+
 ```jsx
 import { Component, Prop, Event, EventEmitter } from '@stencil/core';
 
@@ -109,7 +110,8 @@ export class SliderComponent {
 }
 ```
 
-#### final slider.scss
+### Final slider.scss
+
 ```scss
 fwt-slider {
   
@@ -118,7 +120,7 @@ fwt-slider {
 
     .slider {
       -webkit-appearance: none;
-      appearance: none;   
+      appearance: none;
       width: 100%;
       height: 15px;
       border-radius: 5px;
@@ -153,36 +155,40 @@ fwt-slider {
 }
 ```
 
-### build it for a angular-cli project
+### Integration with an angular-cli project
 
-I'm going to add the build output of stencil to `www/assets/build` because later I will copy this output into the assets folder of a angular-cli project.
-Normally the build output will be put to `www/build` but this can be changed in the `stencil.config.js`.
-I also register my `fwt-slider` component there.
+Stencil basic configuration is defined in `stencil.config.ts` with a namespace
+used to register the `fwt-slider` component there.
 
-```javascript
-exports.config = {
-  bundles: [
-    { components: ['fwt-slider'] }
-  ],
-  buildDir: 'assets/build',
-  collections: [
+```typescript
+import { Config } from "@stencil/core";
+
+export const config: Config = {
+  namespace: "fwt-slider",
+  outputTargets: [
+    {
+      type: "dist"
+    },
+    {
+      type: "docs"
+    },
+    {
+      type: "www",
+      serviceWorker: null
+    }
   ]
 };
-
-exports.devServer = {
-  root: 'www',
-  watchGlob: '**/**'
-}
-
 ```
 
-Ok let's start the build with `npm run build` inside the `stencil` dir.
-After the build is done you must copy the whole `build` dir from `/stencil/www/assets/` to `/angular/src/assets/`.
+Start the build with `npm run build` inside the `stencil` directory.
 
-### make angular ready for web components
+After the build is done you must copy the whole `build` dir from `/stencil/www/` to `/angular/src/assets/`.
+
+### Make angular ready for web components
 
 Our angular project only has one basic app module containing only one simple app component.
-To enable the use of web components we must add the `CUSTOM_ELEMENTS_SCHEMA` from the `@angular/core` module to our app module.
+
+To enable the use of web components we must add the `CUSTOM_ELEMENTS_SCHEMA` from the `@angular/core` module to our `app.module.ts` file.
 
 ```typescript
 import { BrowserModule } from '@angular/platform-browser';
@@ -205,17 +211,20 @@ import { AppComponent } from './app.component';
 })
 export class AppModule { }
 ```
-### add the stencil javascript to our angular index.html
 
-Next we need to add the generated javascript of our stencil project to our angular project. To do this we add a script tag somewhere in the head of the `index.html` of our angular project:
+### Add the Stencil component javascript file to angular index.html
+
+Next we need to add the generated javascript of our stencil project to our angular project. To do this we add a script tag somewhere in the head of the `index.html` of our angular project.
+
 ```html
 <script src="assets/build/app.js"></script>
 ```
+
 An even better way would be to add your additional web component scripts to the `.angular-cli.json` config file as explained [here](https://github.com/angular/angular-cli/wiki/stories-global-scripts).
 
-### add angular data-binding
+### Add angular data-binding
 
-We said that our slider component has three properties (min, max, value). So let's establish angular data-binding to these properties in our app component.
+We said that our slider component has three properties (min, max, value). So let's establish angular data-binding to these properties in our `app.component.ts` file.
 
 ```typescript
 import { Component } from '@angular/core';
@@ -232,15 +241,15 @@ export class AppComponent {
 }
 ```
 
-And in the `app.component.html` we are adding our slider web component like this:
+In the `app.component.html` we are add our slider web component like this:
 
 ```html
 <fwt-slider [min]="min" [max]="max" [value]="value"></fwt-slider>
 ```
 
-### play around with events
+### Play around with events
 
-One last thing I want to show is how we can listen to the custom events and use them to update the data-bound properties. So let's add another slider with its own value and two event handlers that set the value property of the other slider component ('yeah I know, very clever example').
+One last thing to show is how we can listen to the custom events and use them to update the data-bound properties. So let's create a trivial example. We add another slider with its own value and two event handlers that set the value property of the other slider component.
 
 ```typescript
 import { Component } from '@angular/core';
@@ -277,7 +286,8 @@ export class AppComponent {
 </fwt-slider>
 ```
 
-### run the angular app
-See what we have done by running `npm start` inside the angular directory.
+### Run the angular app
+
+See the results by running `npm start` inside the angular directory.
 
 ![final slider](https://raw.githubusercontent.com/seveves/angular-stencil/master/angular/slider.gif)
