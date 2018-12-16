@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `max`    | `max`     |             | `number` | `undefined` |
-| `min`    | `min`     |             | `number` | `undefined` |
-| `value`  | `value`   |             | `number` | `undefined` |
+| Property | Attribute | Description    | Type     | Default     |
+| -------- | --------- | -------------- | -------- | ----------- |
+| `max`    | `max`     | The max number | `number` | `undefined` |
+| `min`    | `min`     | The min number | `number` | `undefined` |
+| `value`  | `value`   | The number     | `number` | `undefined` |
 
 
 ## Events
