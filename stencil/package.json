@@ -1,5 +1,5 @@
 {
-  "name": "___PROJECT_NAME___",
+  "name": "fwt-slider",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "module": "dist/esm/index.js",
