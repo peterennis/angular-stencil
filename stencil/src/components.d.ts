@@ -13,14 +13,32 @@ import '@stencil/core';
 export namespace Components {
 
   interface FwtSlider {
+    /**
+    * The max number
+    */
     'max': number;
+    /**
+    * The min number
+    */
     'min': number;
+    /**
+    * The number
+    */
     'value': number;
   }
   interface FwtSliderAttributes extends StencilHTMLAttributes {
+    /**
+    * The max number
+    */
     'max'?: number;
+    /**
+    * The min number
+    */
     'min'?: number;
     'onValueChanged'?: (event: CustomEvent) => void;
+    /**
+    * The number
+    */
     'value'?: number;
   }
 }

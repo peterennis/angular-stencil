@@ -14,4 +14,4 @@ export const config: Config = {
       serviceWorker: null
     }
   ]
-};
+}

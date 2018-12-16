@@ -1,33 +1,24 @@
 {
-  "name": "@stencil/starter",
-  "private": true,
+  "name": "___PROJECT_NAME___",
   "version": "0.0.1",
-  "description": "Stencil Starter App",
+  "description": "Stencil Component Starter",
+  "module": "dist/esm/index.js",
   "main": "dist/index.js",
-  "module": "dist/esm/es5/index.js",
+  "unpkg": "dist/ionic.js",
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"
   ],
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll"
   },
-  "dependencies": {
-    "@stencil/core": "0.16.1",
-    "@stencil/router": "0.3.1"
+  "dependencies": {},
+  "devDependencies": {
+    "@stencil/core": "~0.16.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ionic-team/stencil-starter.git"
-  },
-  "author": "Ionic Team",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ionic-team/stencil"
-  },
-  "homepage": "https://github.com/ionic-team/stencil"
+  "license": "MIT"
 }

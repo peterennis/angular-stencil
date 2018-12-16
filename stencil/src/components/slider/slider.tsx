@@ -6,8 +6,19 @@ import { Component, Prop, Event, EventEmitter } from '@stencil/core';
 })
 export class SliderComponent {
 
+  /**
+ * The min number
+ */
   @Prop() min: number;
+
+  /**
+   * The max number
+   */
   @Prop() max: number;
+
+  /**
+   * The number
+   */
   @Prop() value: number;
 
   @Event() valueChanged: EventEmitter;
