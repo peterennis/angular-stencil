@@ -7,7 +7,9 @@ The following steps explain how to get this working.
 
 ## Create a basic Stencil component
 
-The idea is to have a web component that can be data-bound via properties and return its changes by custom events. For this example a simple slider component is created.
+The idea is to have a web component that can be data-bound via properties and return its changes by custom events. For this example a simple slider component is created. We use the [stencil-component-starter](https://github.com/ionic-team/stencil-component-starter) as the template for creating our component.
+
+**NOTE:** Stencil component testing is a new feature and **NOT** included in this integration demo.
 
 The following code shows the `@Component` decorator. This decorator adds meta-information to your component like its selector `tag`. Our slider uses the custom element selector tag `fwt-slider` (so we can use `<fwt-slider>` later in the DOM).
 
